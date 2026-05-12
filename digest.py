@@ -15,7 +15,8 @@ GMAIL_APP_PASSWORD  = os.environ["GMAIL_APP_PASSWORD"]
 REGION  = os.environ.get("REGION", "worldwide")
 STAGE   = os.environ.get("STAGE", "any stage")
 SECTOR  = os.environ.get("SECTOR", "")
-COUNT = int(os.environ.get("COUNT", "8") or "8")
+count_str = os.environ.get("COUNT", "8").strip()
+COUNT   = int(count_str if count_str else "8")
 # ─────────────────────────────────────────────────────────────────────────────
 
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
