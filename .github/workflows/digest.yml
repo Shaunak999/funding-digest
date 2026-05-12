@@ -20,13 +20,12 @@ jobs:
           python-version: "3.12"
 
       - name: Run digest
-        env:
-          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
-          RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
-          GMAIL_USER:         ${{ secrets.GMAIL_USER }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          REGION:             ${{ vars.REGION }}
-          STAGE:              ${{ vars.STAGE }}
-          SECTOR:             ${{ vars.SECTOR }}
-          COUNT:              "8"
-        run: python digest.py
+env:
+  ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+  RECIPIENT_EMAIL:    ${{ secrets.RECIPIENT_EMAIL }}
+  GMAIL_USER:         ${{ secrets.GMAIL_USER }}
+  GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+  REGION: "India"
+  STAGE: "Seed"
+  SECTOR: "AI"
+  COUNT: "8"
