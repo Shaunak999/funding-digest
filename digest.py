@@ -5,6 +5,17 @@ import anthropic
 from datetime import datetime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from anthropic import BadRequestError
+
+try:
+    # Your Anthropic API calls here
+    response = client.messages.create(...)
+except BadRequestError as e:
+    if "credit balance is too low" in str(e):
+        print("Error: Insufficient API credits. Please add credits to your Anthropic account.")
+        # Handle gracefully - skip sending digest, log, etc.
+    else:
+        raise
 
 # ── Config (all from GitHub Secrets / env vars) ──────────────────────────────
 ANTHROPIC_API_KEY   = os.environ["ANTHROPIC_API_KEY"]
