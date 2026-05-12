@@ -28,5 +28,5 @@ jobs:
           REGION:             ${{ vars.REGION }}
           STAGE:              ${{ vars.STAGE }}
           SECTOR:             ${{ vars.SECTOR }}
-          COUNT:              8
+          COUNT:              "8"
         run: python digest.py
